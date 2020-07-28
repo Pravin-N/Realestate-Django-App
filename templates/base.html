@@ -1,0 +1,33 @@
+{% load static %} <!-- step 10.8 -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Font Awesome -->
+  <link rel="stylesheet" href="{% static 'css/all.css' %}"> <!-- step 10.8 -->
+  <!-- Bootstrap -->
+  <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}"> <!-- step 10.8 -->
+  <!-- Custom -->
+  <link rel="stylesheet" href="{% static 'css/style.css' %}"> <!-- step 10.8 -->
+  <!-- Lightbox -->
+  <link rel="stylesheet" href="{% static 'css/lightbox.min.css' %}"> <!-- step 10.8 -->
+    <title>BT Real Estate</title>
+</head>
+<body>
+    <!-- Top bar -->
+    {% include 'partials/_topbar.html' %} <!-- step 10.11 -->
+    <!-- Nav bar -->
+    {% include 'partials/_navbar.html' %} <!-- step 10.11 -->
+    <!-- Main Content -->
+    {% block content %} {% endblock %} <!-- step 9.2 -->
+
+    <!-- Footer -->
+    {% include 'partials/_footer.html' %} <!-- step 10.11 -->
+    
+    <script src="{% static 'js/jquery-3.3.1.min.js' %}"></script> <!-- step 10.8 -->
+    <script src="{% static 'js/bootstrap.bundle.min.js' %}"></script> <!-- step 10.8 -->
+    <script src="{% static 'js/lightbox.min.js' %}"></script> <!-- step 10.8 -->
+    <script src="{% static 'js/main.js' %}"></script> <!-- step 10.8 -->
+</body>
+</html>
