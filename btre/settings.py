@@ -32,6 +32,8 @@ ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
     'pages.apps.PagesConfig', #Step 7 (ii)
+    'listings.apps.ListingsConfig', #Step 13.7
+    'realtors.apps.RealtorsConfig', #Step 13.7
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -75,9 +77,12 @@ WSGI_APPLICATION = 'btre.wsgi.application'
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+    'default': { # step 15.3 everything below.
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'btredb',
+        'USER': 'postgres',
+        'PASSWORD': 'datapass',
+        'HOST': 'localhost',
     }
 }
 
@@ -123,3 +128,7 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = [ # step 11.3
     os.path.join(BASE_DIR, 'btre/static')
 ]
+
+# Media Folder Settings
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media') # step 21.1
+MEDIA_URL = '/media/' # step 21.1
