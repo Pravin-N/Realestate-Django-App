@@ -22,4 +22,7 @@ urlpatterns = [
     path('', include('pages.urls')), # step 7 (viii)
     path('listings/', include('listings.urls')), # step 13.6
     path('admin/', admin.site.urls),
+    path('accounts/', include('accounts.urls')), #32.10
+    path('contacts/', include('contacts.urls')), #41.2
+
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT) # step 21.2
