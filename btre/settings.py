@@ -11,8 +11,7 @@ https://docs.djangoproject.com/en/3.0/ref/settings/
 """
 
 import os
-from env_vars import email_user, email_password, secret_key
-
+import env_vars
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -21,7 +20,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/3.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = secret_key
+SECRET_KEY = env_vars.secret_key
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -43,7 +42,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'django.contrib.humanize', #Step 25.2
+    'django.contrib.humanize', #Step 25.2,
+    'storages'
 ]
 
 MIDDLEWARE = [
@@ -146,6 +146,15 @@ MESSAGE_TAGS = {
 # Email Config
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_POST = 587
-EMAIL_HOST_USER = email_user
-EMAIL_HOST_PASSWORD = email_password
+EMAIL_HOST_USER = env_vars.email_user
+EMAIL_HOST_PASSWORD = env_vars.email_password
 EMAIL_USE_TLS = True
+
+#AWS S3 configuration
+AWS_ACCESS_KEY_ID = env_vars.AWS_ACCESS_KEY_ID
+AWS_SECRET_ACCESS_KEY = env_vars.AWS_SECRET_ACCESS_KEY
+AWS_STORAGE_BUCKET_NAME = env_vars.AWS_STORAGE_BUCKET_NAME
+AWS_S3_FILE_OVERWRITE = False
+AWS_DEFAULT_ACL = None
+
+DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
