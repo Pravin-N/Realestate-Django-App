@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/3.0/ref/settings/
 """
 
 import os
+from env_vars import email_user, email_password, secret_key
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -20,7 +21,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/3.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = '%!a!^n^w7!(=-*375#qljfn-f3$e@!kzy+n47d$$(k)nyk-%u+'
+SECRET_KEY = secret_key
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -145,6 +146,6 @@ MESSAGE_TAGS = {
 # Email Config
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_POST = 587
-EMAIL_HOST_USER = 'pravin86n@gmail.com'
-EMAIL_HOST_PASSWORD = ''
+EMAIL_HOST_USER = email_user
+EMAIL_HOST_PASSWORD = email_password
 EMAIL_USE_TLS = True
